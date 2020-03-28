@@ -6,7 +6,9 @@ class MovieTable extends Component {
     console.log('this.props', this.props);
   }
   render() {
-
+    const {
+      data
+    } = this.props;
     return (
       <div>
         <div> Search </div>
@@ -18,12 +20,20 @@ class MovieTable extends Component {
               <th> Ratings </th>
               <th> Duration </th>
             </tr>
-
+            
           </thead>
           <tbody>
-            <tr>{this.props.data.name}</tr>
-            <tr></tr>
-            <tr></tr>
+            {
+              data.map((item, i) => {
+                return (
+                  <tr key={"tableItem"+i}>
+                    <td>{item.name}</td>
+                    <td>{item.ratings}</td>
+                    <td>{item.duration}</td>
+                  </tr>
+                );
+              })
+            }
           </tbody>
         </table>
       </div>

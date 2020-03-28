@@ -34,17 +34,19 @@ class MovieForm extends Component {
           <div className="form-control">
             <div>Movie Name </div>
             <input
-              type="text" id="name-input" onChange={(e) => this.handleChange(e)} />
+              name="name" type="text" id="name-input" onChange={(e) => this.handleChange(e)} />
           </div>
           <div className="form-control">
             <div> Ratings </div>
             <input
+              name="ratings"
               onChange={e => this.handleChange(e)}
               type="text" id="ratings-input" />
           </div>
           <div className="form-control">
             <div> Duration </div>
             <input
+              name="duration"
               onChange={e => this.handleChange(e)}
               type="text" id="duration-input" />
           </div>
