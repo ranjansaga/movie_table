@@ -15,15 +15,23 @@ class App extends Component {
   }
 
   onMovieAdd = (movie) => {
-    console.log(' addMovieInfo movie', movie);
     let movieList = [...this.state.movieList];
-
-    movieList.push(movie);
+    let newMovie = true;
+    movieList.forEach((mov) => {
+      if(mov.name === movie.name) {
+        mov.ratings = movie.ratings;
+        mov.duration = movie.duration;
+        newMovie = false;
+      }
+    });
+    if(newMovie === true) {
+      movieList.push(movie);
+    }
 
     this.setState({
       movieList: movieList
     });
-    console.log('addMovieInfo');
+    console.log('Added another movie');
   }
 
   render() {

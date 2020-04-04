@@ -12,29 +12,31 @@ class MovieForm extends Component {
 
   onMovieAdd = (e) => {
     e.preventDefault();
-    console.log('adding movie', this.state, this.props);
+    console.log('Adding Movie', this.state, this.props);
     this.props.onMovieAdd(this.state);
   };
 
   handleChange = (e) => {
-    console.log('e here', e);
     let input = e.target;
     let name = e.target.name;
     let value = input.value;
-    console.log('name', 'value', name, value);
     this.setState({
       [name]: value
     })
   };
 
   render() {
+    console.log('rendering my form')
     return (
       <div>
         <form onSubmit={(e) => { this.onMovieAdd(e); }} name="movieForm">
           <div className="form-control">
             <div>Movie Name </div>
             <input
-              name="name" type="text" id="name-input" onChange={(e) => this.handleChange(e)} />
+              name="name"
+              type="text"
+              id="name-input"
+              onChange={(e) => this.handleChange(e)} />
           </div>
           <div className="form-control">
             <div> Ratings </div>
